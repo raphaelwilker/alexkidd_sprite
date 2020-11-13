@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+div.alex {
+  padding: 8px;
+  width: 2px;
+  height: 12px;
+  background: url(./imgs/10911_2.png)  0 0 no-repeat;
+  /* animation: dance 1s steps(2) infinite; */
+  animation: stop 1s steps(1) infinite;
+  background-position: 0 -26px;
+  /* background-position-y: -52px; */
+  /* background-position-x: 0; */
+
+  
+}
+
+div.walk{
+    animation: walk 0.2s steps(3) infinite;
+}
+
+.flip{
+    transform: scaleX(-1);
+    filter: FlipH;
+}
+
+div.alex-flip {
+  padding: 8px;
+  width: 2px;
+  height: 12px;
+  background: url(./imgs/10911_2.png)  0 0 no-repeat;
+  animation: dance 1s steps(2) infinite;
+  background-position-y: -52px;
+  background-position-x: 0;
+  transform: scaleX(-1);
+  filter: FlipH;
+  
+}
+
+@keyframes dance {
+    form{ background-position-x: 0px;}
+    to{ background-position-x: -38px;}
+}
+
+@keyframes stop {
+    100%{
+        background-position-x: 0px;
+        background-position-y: -26px;
+    }
+}
+
+@keyframes walk {
+    from{
+        background-position-x: 0px;
+        background-position-y: 0px;
+    }
+    to{
+        background-position-x: -51px;
+        background-position-y: 0px;
+    }
+    /* form{ background-position-x: 0px;}
+    to{ background-position-x: -38px;} */
+    /* from{
+        background-position-x: 0px;
+        background-position-y: -26px;
+    } */
+
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="alex"></div>
+    <div class="alex-flip"></div>
+</div>
+
+<script>
+    document.addEventListener('keyup',function(evt){
+
+    switch(evt.keyCode){
+
+        case 68:
+            document.querySelector('.alex').classList.remove('walk');
+        break;
+        case 65:
+            document.querySelector('.alex').classList.remove('walk');
+        break;
+    }
+});
+
+document.addEventListener('keydown',function(evt){
+
+    switch(evt.keyCode){
+
+        case 68:
+            document.querySelector('.alex').classList.add('walk');
+            document.querySelector('.alex').classList.remove('flip');
+        break;
+        case 65:
+            document.querySelector('.alex').classList.add('walk');
+            document.querySelector('.alex').classList.add('flip');
+        break;
+    }
+});
+</script>
+
+</body>
+</html>
